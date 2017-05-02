@@ -1,0 +1,76 @@
+/*
+ * Copyright (C) 2016, JetFlow Technologies Co., Ltd. All rights reserved.
+ *
+ * JetFlow Technologies Co., Ltd. has intellectual property rights relating to the
+ * technologies hereby disclosed. In particular, and without limitation, these
+ * intellectual property rights include one or more of P.R.C and U.S. patents or P.R.C
+ * and U.S. patents pending filed by JetFlow Technologies Co., Ltd., and may include
+ * additional national or PCT applications filed within the pendency of the initial
+ * applications.
+ *
+ * No part of this document, or the resulting intermediate or executable translations
+ * of this document in any form by any means, may be disclosed to any third party
+ * without prior written authorization of JetFlow Technologies Co., Ltd. Public
+ * disclosure of this material in any form is expressly forbidden and constitutes
+ * injury to the property rights of JetFlow Technologies Co., Ltd.
+ *
+ * JetFlow Technologies Co., Ltd. makes no representations about the suitability of
+ * this software for any purpose. It is provided "as-is" without express or implied
+ * warranty.
+ */
+
+import javax.xml.namespace.QName
+import java.nio.file.Files
+import java.nio.file.Path
+import java.nio.file.Paths
+
+def generateVersionInfoProperties(String version, String fileName) {
+    def properties = new Properties()
+    properties.setProperty("version", version)
+    Path path = Paths.get(fileName)
+    Files.deleteIfExists(path)
+    Files.createDirectories(path.parent)
+    Files.createFile(path)
+    new File(fileName).withOutputStream { out ->
+        properties.store(out, copyright)
+    }
+}
+
+def modifyTmpDir(String inFile, String outFile, String tmpDir) {
+    def parser = new XmlParser()
+    def parseYitaSiteXml = parser.parse(inFile)
+    parseYitaSiteXml.appendNode(new QName("property"), [name: 'cluster.tmpdir'], tmpDir)
+    //println groovy.xml.XmlUtil.serialize(parseYitaSiteXml)
+    Files.createDirectories(Paths.get(outFile).parent)
+    new File(outFile).withPrintWriter { writer ->
+        def printer = new XmlNodePrinter(writer)
+        printer.preserveWhitespace = true
+        printer.print(parseYitaSiteXml)
+    }
+}
+
+ext {
+    copyright = """\
+    | Copyright (C) 2016, JetFlow Technologies Co., Ltd. All rights reserved.
+    |
+    | JetFlow Technologies Co., Ltd. has intellectual property rights relating to the
+    | technologies hereby disclosed. In particular, and without limitation, these
+    | intellectual property rights include one or more of P.R.C and U.S. patents or P.R.C
+    | and U.S. patents pending filed by JetFlow Technologies Co., Ltd., and may include
+    | additional national or PCT applications filed within the pendency of the initial
+    | applications.
+    |
+    | No part of this document, or the resulting intermediate or executable translations
+    | of this document in any form by any means, may be disclosed to any third party
+    | without prior written authorization of JetFlow Technologies Co., Ltd. Public
+    | disclosure of this material in any form is expressly forbidden and constitutes
+    | injury to the property rights of JetFlow Technologies Co., Ltd.
+    |
+    | JetFlow Technologies Co., Ltd. makes no representations about the suitability of
+    | this software for any purpose. It is provided "as-is" without express or implied
+    | warranty.
+    |""".stripMargin()
+
+    generateVersionInfoProperties = this.&generateVersionInfoProperties
+    modifyTmpDir = this.&modifyTmpDir
+}
