@@ -1,4 +1,4 @@
-package Serialization;
+package Fox;
 
 
 import java.io.DataOutput;

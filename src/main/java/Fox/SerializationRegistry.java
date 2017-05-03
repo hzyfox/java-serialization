@@ -1,5 +1,6 @@
-package Serialization;
+package Fox;
 
+import Fox.util.KryoSerialization;
 import com.esotericsoftware.kryo.Kryo;
 import org.objenesis.strategy.StdInstantiatorStrategy;
 import org.slf4j.Logger;
@@ -24,7 +25,7 @@ public final class SerializationRegistry implements Iterable<Serialization<?>> {
     private final int kryoRegistrationOffset = new Kryo().getNextRegistrationId();
 
     public SerializationRegistry(){
-
+        //need to complete;
     }
     public synchronized <T> void register(Serialization<T> serialization) {
         if (serialization == null) {

@@ -1,6 +1,6 @@
-package Serialization;
+package Fox;
 
-import Serialization.util.GrowableObjectArray;
+import Fox.util.GrowableObjectArray;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

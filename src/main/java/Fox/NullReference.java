@@ -1,4 +1,4 @@
-package Serialization;
+package Fox;
 
 /**
  * create with Serialization

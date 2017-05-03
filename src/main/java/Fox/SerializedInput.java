@@ -1,4 +1,4 @@
-package Serialization;
+package Fox;
 
 import java.io.DataInput;
 import java.io.IOException;

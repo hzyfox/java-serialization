@@ -1,4 +1,4 @@
-package Serialization.util;
+package Fox.util;
 
 /**
  * create with Serialization.util
