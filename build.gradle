@@ -5,7 +5,7 @@ apply plugin: 'java'
 apply plugin: 'idea'
 apply plugin: 'scala'
 
-sourceCompatibility = 1.5
+sourceCompatibility = 1.7
 
 repositories {
         maven{
@@ -19,4 +19,7 @@ dependencies {
     compile group: 'org.scala-lang', name: 'scala-library', version: '2.11.8'
     // https://mvnrepository.com/artifact/com.esotericsoftware/kryo-shaded
     compile group: 'com.esotericsoftware', name: 'kryo-shaded', version: '4.0.0'
+    // https://mvnrepository.com/artifact/org.slf4j/slf4j-log4j12
+    compile group: 'org.slf4j', name: 'slf4j-log4j12', version: '1.7.6'
+
 }

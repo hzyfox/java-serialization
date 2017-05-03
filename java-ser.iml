@@ -4,6 +4,7 @@
     <exclude-output/>
     <orderEntry type="inheritedJdk"/>
     <content url="file://$MODULE_DIR$/">
+      <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false"/>
       <excludeFolder url="file://$MODULE_DIR$/build"/>
       <excludeFolder url="file://$MODULE_DIR$/.gradle"/>
     </content>
@@ -33,6 +34,17 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
+          <root url="jar:///Users/husterfox/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-log4j12/1.7.6/6953717b9850aeb26d1b8375ca07dbd9c50eca4e/slf4j-log4j12-1.7.6.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///Users/husterfox/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-log4j12/1.7.6/4197262dfb954ef804ddde1eb522f640c617741d/slf4j-log4j12-1.7.6-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
           <root url="jar:///Users/husterfox/.gradle/caches/modules-2/files-2.1/com.esotericsoftware/minlog/1.3.0/ff07b5f1b01d2f92bb00a337f9a94873712f0827/minlog-1.3.0.jar!/"/>
         </CLASSES>
         <JAVADOC/>
@@ -49,6 +61,28 @@
         <JAVADOC/>
         <SOURCES>
           <root url="jar:///Users/husterfox/.gradle/caches/modules-2/files-2.1/org.objenesis/objenesis/2.2/6b6018a6a56db58a29b9ce20837b829a6bad016b/objenesis-2.2-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/husterfox/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-api/1.7.6/562424e36df3d2327e8e9301a76027fca17d54ea/slf4j-api-1.7.6.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///Users/husterfox/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-api/1.7.6/97bb93c1badeae97a3d37e3c902df2985ee3de34/slf4j-api-1.7.6-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/husterfox/.gradle/caches/modules-2/files-2.1/log4j/log4j/1.2.17/5af35056b4d257e4b64b9e8069c0746e8b08629f/log4j-1.2.17.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///Users/husterfox/.gradle/caches/modules-2/files-2.1/log4j/log4j/1.2.17/677abe279b68c5e7490d6d50c6951376238d7d3e/log4j-1.2.17-sources.jar!/"/>
         </SOURCES>
       </library>
     </orderEntry>
