@@ -1,6 +1,7 @@
-package Fox.util;
+package Fox.Primitive;
 
 import Fox.*;
+import Fox.util.ByteBufferInputStream;
 import com.esotericsoftware.kryo.Kryo;
 import com.esotericsoftware.kryo.KryoException;
 

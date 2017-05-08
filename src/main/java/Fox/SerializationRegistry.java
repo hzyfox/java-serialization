@@ -1,6 +1,6 @@
 package Fox;
 
-import Fox.util.KryoSerialization;
+import Fox.Primitive.KryoSerialization;
 import com.esotericsoftware.kryo.Kryo;
 import org.objenesis.strategy.StdInstantiatorStrategy;
 import org.slf4j.Logger;

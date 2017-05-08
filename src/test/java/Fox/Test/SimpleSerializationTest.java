@@ -6,6 +6,7 @@ import Fox.SerializationRegistry;
 import Fox.SerializedInputStream;
 import Fox.SerializedOutputStream;
 import Fox.Target.Simple;
+import Fox.Target.TargetKryo;
 import Fox.util.ByteBufferInputStream;
 import org.junit.Assert;
 import org.junit.Test;
@@ -38,5 +39,25 @@ public class SimpleSerializationTest {
         Simple simple1 = (Simple) serializedInputStream.readObject();
         System.out.println("targetInt is " + simple1.getTargetInt());
         Assert.assertTrue("serialization successs", simple1.getTargetInt() == 2);
+    }
+
+    @Test
+    public void testKryoSerialization() throws IOException {
+        TargetKryo targetKryo = new TargetKryo();
+        SerializationRegistry serializationRegistry = new SerializationRegistry();
+        serializationRegistry.registerKryo(TargetKryo.class);
+        SerializationCache serializationCache = new SerializationCache(serializationRegistry);
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        SerializedOutputStream serializedOutputStream =
+                new SerializedOutputStream(byteArrayOutputStream, serializationCache, serializationRegistry.newKryo());
+        serializedOutputStream.writeObject(targetKryo);
+        byte[] content = byteArrayOutputStream.toByteArray();
+        java.nio.ByteBuffer byteBuffer = java.nio.ByteBuffer.wrap(content);
+        ByteBufferInputStream byteBufferInputStream = new ByteBufferInputStream(byteBuffer);
+        SerializedInputStream serializedInputStream =
+                new SerializedInputStream(byteBufferInputStream, serializationCache, serializationRegistry.newKryo());
+        TargetKryo targetKryo1 = (TargetKryo) serializedInputStream.readObject();
+        System.out.println("targetInt is " + targetKryo1.getTargetInt());
+        Assert.assertTrue("serialization successs", targetKryo1.getTargetInt() == 1);
     }
 }
