@@ -2,5 +2,8 @@ build/
 *.o
 *.class
 .DS_Store
-.idea/
-.gradle/
+.idea/*
+.gradle/*
+*.iml
+*.ipr
+*.iws

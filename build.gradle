@@ -6,6 +6,7 @@ apply plugin: 'idea'
 apply plugin: 'scala'
 
 sourceCompatibility = 1.7
+targetCompatibility = 1.7
 
 repositories {
         maven{

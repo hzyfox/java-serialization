@@ -45,7 +45,7 @@ public final class SerializationRegistry implements Iterable<Serialization<?>> {
     }
 
 
-    public synchronized <T> void registerYita(Serialization<T> serialization) {
+    public synchronized <T> void registerOrigin(Serialization<T> serialization) {
         register(serialization);
     }
 
