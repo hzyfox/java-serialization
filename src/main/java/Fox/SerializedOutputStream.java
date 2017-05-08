@@ -55,6 +55,12 @@ public class SerializedOutputStream extends DataOutputStream implements Serializ
         if (serializationCache == null) {
             throw new IllegalStateException();
         }
+        if (object == null) {
+            final Serialization<NullReference> serialization = serializationCache.getSerialization(NullReference.class);
+            writeByte(serialization.getCacheIndex());
+            serialization.serialize(null, this);
+            return;
+        }
         final Serialization<T> serialization = serializationCache.getSerialization(clazz);
         if (serialization == null) {
             throw new UnsupportedOperationException();

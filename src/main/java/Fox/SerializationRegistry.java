@@ -1,10 +1,14 @@
 package Fox;
 
 import Fox.Primitive.KryoSerialization;
+import Fox.Primitive.NullReferenceSerialization;
 import com.esotericsoftware.kryo.Kryo;
 import org.objenesis.strategy.StdInstantiatorStrategy;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import scala.Char;
+import scala.Double;
+import scala.Short;
 
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
@@ -26,6 +30,17 @@ public final class SerializationRegistry implements Iterable<Serialization<?>> {
 
     public SerializationRegistry(){
         //need to complete;
+        registerKryo(Integer.class);
+        registerKryo(String.class);
+        registerKryo(Float.class);
+        registerKryo(Boolean.class);
+        registerKryo(Byte.class);
+        registerKryo(Char.class);
+        registerKryo(Short.class);
+        registerKryo(Long.class);
+        registerKryo(Double.class);
+        registerKryo(Void.class);
+        registerOrigin(new NullReferenceSerialization());
     }
     public synchronized <T> void register(Serialization<T> serialization) {
         if (serialization == null) {
