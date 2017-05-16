@@ -7,7 +7,6 @@ package Fox.Target;
 public class TargetKryo {
     public int targetInt;
     public String targetString;
-
     public String getTargetString() {
         return targetString;
     }

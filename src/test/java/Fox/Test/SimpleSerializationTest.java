@@ -49,13 +49,13 @@ public class SimpleSerializationTest {
         SerializationCache serializationCache = new SerializationCache(serializationRegistry);
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         SerializedOutputStream serializedOutputStream =
-                new SerializedOutputStream(byteArrayOutputStream, serializationCache, serializationRegistry.newKryo());
+                new SerializedOutputStream(byteArrayOutputStream, serializationCache, serializationRegistry.newKryo());//kryo object donot forget
         serializedOutputStream.writeObject(targetKryo);
         byte[] content = byteArrayOutputStream.toByteArray();
         java.nio.ByteBuffer byteBuffer = java.nio.ByteBuffer.wrap(content);
         ByteBufferInputStream byteBufferInputStream = new ByteBufferInputStream(byteBuffer);
         SerializedInputStream serializedInputStream =
-                new SerializedInputStream(byteBufferInputStream, serializationCache, serializationRegistry.newKryo());
+                new SerializedInputStream(byteBufferInputStream, serializationCache, serializationRegistry.newKryo());//kryo obejct donnot forget
         TargetKryo targetKryo1 = (TargetKryo) serializedInputStream.readObject();
         System.out.println("targetInt is " + targetKryo1.getTargetInt());
         Assert.assertTrue("serialization successs", targetKryo1.getTargetInt() == 1);
