@@ -29,7 +29,7 @@ public abstract class TestWorkFlow {
     }
 
     public void getSize() {
-        System.out.println("序列化 " + TIMES + "次的流长度的为 " + content.length + " 字节");
+        System.out.println("序列化 " + TIMES + "次的流长度的为 " + content.length + " 字节" +"平均大小为: "+ content.length/(float)TIMES);
     }
 
     public void mainTest(int times) throws IOException {
@@ -37,11 +37,11 @@ public abstract class TestWorkFlow {
         beforeSerialize();
         long start = System.currentTimeMillis();
         setSerializableObject();
-        System.out.println("java原生序列化时间:" + (System.currentTimeMillis() - start) + " ms");
+        System.out.println("java原生序列化时间:" + (System.currentTimeMillis() - start)*1000/(float)TIMES + " us");
         afterSerialize();
         start = System.currentTimeMillis();
         getSerializableObject();
-        System.out.println("java原生反序列化时间:" + (System.currentTimeMillis() - start) + " ms");
+        System.out.println("java原生反序列化时间:" + (System.currentTimeMillis() - start)*1000/(float)TIMES + " us");
         afterDeserialize();
     }
     public TestWorkFlow hotTest(int hotTimes) throws IOException{

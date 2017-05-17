@@ -11,14 +11,14 @@ import java.util.Map;
  * create with Test.Origin
  * USER: husterfox
  */
-public class OriginSerialize extends TestWorkFlow {
+public class JavaBuiltInSerialize extends TestWorkFlow {
     public ByteArrayOutputStream byteArrayOutputStream;
     public ObjectOutputStream objectOutputStream;
     public ObjectInputStream objectInputStream;
     public ByteArrayInputStream byteArrayInputStream;
 
     public static void main(String[] args) throws IOException {
-        new OriginSerialize().hotTest(500000).mainTest(1000000);
+        new JavaBuiltInSerialize().hotTest(1000000).mainTest(1000000);
     }
 
     public void setSerializableObject() throws IOException {

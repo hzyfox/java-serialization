@@ -11,16 +11,16 @@ import java.util.Map;
  * create with Test
  * USER: husterfox
  */
-public class TargetClassWithMannual implements Serializable {
+public class TargetClassWithWriteRead implements Serializable {
     private String name;
     private int age;
     private Map<String, Integer> map;
 
-    public TargetClassWithMannual() {
+    public TargetClassWithWriteRead() {
 
     }
 
-    public TargetClassWithMannual(String name, int age, Map<String, Integer> map) {
+    public TargetClassWithWriteRead(String name, int age, Map<String, Integer> map) {
         this.name = name;
         this.age = age;
         this.map = map;

@@ -1,7 +1,6 @@
 package Test.Origin;
 
-import Test.TargetClass;
-import Test.TargetClassWithMannual;
+import Test.TargetClassWithWriteRead;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -11,10 +10,10 @@ import java.util.Map;
  * create with Test.Origin
  * USER: husterfox
  */
-public class JavaMannualSerialize extends OriginSerialize {
+public class JavaManualSerialize extends JavaBuiltInSerialize {
 
     public static void main(String[] args) throws IOException {
-        new JavaMannualSerialize().hotTest(500000).mainTest(1000000);
+        new JavaManualSerialize().hotTest(1000000).mainTest(1000000);
     }
     @Override
     public void setSerializableObject() throws IOException {
@@ -22,16 +21,16 @@ public class JavaMannualSerialize extends OriginSerialize {
             Map<String, Integer> map = new HashMap<String, Integer>(2);
             map.put("origin1", i);
             map.put("origin2", i);
-            objectOutputStream.writeObject(new TargetClassWithMannual("fox" + i, (i + 1), map));
+            objectOutputStream.writeObject(new TargetClassWithWriteRead("fox" + i, (i + 1), map));
         }
     }
 
     @Override
     public void getSerializableObject() throws IOException {
-        TargetClassWithMannual targetClass = null;
+        TargetClassWithWriteRead targetClassWithWriteRead = null;
         try {
             for (int i = 0; i < TIMES; i++) {
-                targetClass = (TargetClassWithMannual) objectInputStream.readObject();
+                targetClassWithWriteRead = (TargetClassWithWriteRead) objectInputStream.readObject();
                 //System.out.println(targetClass.getAge()+ "  " + targetClass.getName());
             }
         } catch (ClassNotFoundException e1) {

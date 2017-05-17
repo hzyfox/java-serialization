@@ -1,6 +1,5 @@
 package Test.KryoTest;
 
-import Fox.util.ByteBufferInputStream;
 import Test.TargetClass;
 import Test.TestWorkFlow;
 import com.esotericsoftware.kryo.Kryo;
@@ -17,7 +16,7 @@ import java.util.Map;
  * create with Test.KryoTest
  * USER: husterfox
  */
-public class KryoClass extends TestWorkFlow {
+public class KryoSerialize extends TestWorkFlow {
     public Kryo kryo;
     Output output;
     ByteArrayOutputStream byteArrayOutputStream;
@@ -70,6 +69,6 @@ public class KryoClass extends TestWorkFlow {
     }
 
     public static void main(String[] args) throws IOException {
-        new KryoClass().hotTest(500000).mainTest(1000000);
+        new KryoSerialize().hotTest(100000).mainTest(1000000);
     }
 }

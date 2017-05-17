@@ -18,7 +18,7 @@ import java.util.Map;
  * create with Test.Fox
  * USER: husterfox
  */
-public class TargetSerialize extends TestWorkFlow {
+public class KryoTargetSerialize extends TestWorkFlow {
     public  SerializationRegistry serializationRegistry;
     public  SerializationCache serializationCache;
     public  ByteArrayOutputStream byteArrayOutputStream;
@@ -29,7 +29,7 @@ public class TargetSerialize extends TestWorkFlow {
 
 
     public static void main(String[] args) throws IOException {
-        new TargetSerialize().hotTest(500000).mainTest(1000000);
+        new KryoTargetSerialize().hotTest(1000000).mainTest(1000000);
     }
 
     public  void setSerializableObject() throws IOException {
@@ -67,7 +67,7 @@ public class TargetSerialize extends TestWorkFlow {
         serializationRegistry = new SerializationRegistry();
         serializationRegistry.registerKryo(Map.class);
         serializationRegistry.registerKryo(HashMap.class);
-        serializationRegistry.registerOrigin(new TargetSerialization());
+        serializationRegistry.registerOrigin(new KryoTargetSerialization());
         serializationCache = new SerializationCache(serializationRegistry);
         byteArrayOutputStream = new ByteArrayOutputStream();
         serializedOutputStream =
