@@ -28,7 +28,7 @@ public final class SerializationRegistry implements Iterable<Serialization<?>> {
     private final Set<Class<?>> kryoSerializationClasses = Collections.synchronizedSet(new HashSet<Class<?>>());
     private final int kryoRegistrationOffset = new Kryo().getNextRegistrationId();
 
-    public SerializationRegistry(){
+    public SerializationRegistry() {
         //need to complete;
         registerKryo(Integer.class);
         registerKryo(String.class);
@@ -42,6 +42,7 @@ public final class SerializationRegistry implements Iterable<Serialization<?>> {
         registerKryo(Void.class);
         registerOrigin(new NullReferenceSerialization());
     }
+
     public synchronized <T> void register(Serialization<T> serialization) {
         if (serialization == null) {
             throw new IllegalArgumentException();

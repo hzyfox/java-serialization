@@ -11,9 +11,6 @@ public abstract class TestWorkFlow {
     public int HOT_TIMES=0;
     public byte[] content;
 
-
-
-
     public abstract void beforeSerialize() throws IOException;
 
     public abstract void setSerializableObject() throws IOException;
