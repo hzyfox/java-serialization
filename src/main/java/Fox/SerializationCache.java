@@ -7,15 +7,13 @@ import org.slf4j.LoggerFactory;
 import java.util.HashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 
-
+//引入Cache，不引入Cache每次只能从注册类中new一个出来，至于为什么不引用注册类中的对象，见注册类注释
 public class SerializationCache {
     static final Logger log = LoggerFactory.getLogger(SerializationCache.class);
-    static final AtomicInteger IDGEN = new AtomicInteger(0);
     final HashMap<Class<?>, Serialization<?>> serializations = new HashMap<Class<?>, Serialization<?>>();
     final GrowableObjectArray<Serialization<?>>
             serializationIndex =
             new GrowableObjectArray<Serialization<?>>(Serialization.class);
-    final int instanceID = IDGEN.getAndIncrement();
     SerializationRegistry serializationRegistry;
 
     public SerializationCache(){
@@ -80,7 +78,6 @@ public class SerializationCache {
         StringBuilder string = new StringBuilder();
         string.append(this.getClass().getSimpleName());
         string.append(".");
-        string.append(instanceID);
         return string.toString();
     }
 }

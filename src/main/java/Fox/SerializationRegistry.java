@@ -23,7 +23,7 @@ public final class SerializationRegistry implements Iterable<Serialization<?>> {
     private final ConcurrentHashMap<Class<?>, Serialization<?>>
             registry = new ConcurrentHashMap<Class<?>, Serialization<?>>();
     private final ConcurrentHashMap<Class<?>, com.esotericsoftware.kryo.Serializer<?>>
-            serializationClassToKryoSerializer = new ConcurrentHashMap<>();
+            serializationClassToKryoSerializer = new ConcurrentHashMap<>();//为何不直接引用map中的内容？ 是私有的，不应该直接被引用
     private final CopyOnWriteArrayList<Serialization<?>> index = new CopyOnWriteArrayList<Serialization<?>>();
     private final Set<Class<?>> kryoSerializationClasses = Collections.synchronizedSet(new HashSet<Class<?>>());
     private final int kryoRegistrationOffset = new Kryo().getNextRegistrationId();
